@@ -29,7 +29,7 @@ System.out.println(sum);
 ***
  Java provides several functional interfaces that can be used to write functional-style code. 
  
- Predicate, Consumer, Supplier, and Function - are among the most commonly used functional interfaces in Java.
+ <span style="color:red;">Predicate</span>, Consumer, Supplier, and Function - are among the most commonly used functional interfaces in Java.
 
 Here is a brief overview of each interface:
 
