@@ -55,37 +55,37 @@ String result = toString.apply(42); // "42"
 ```
 ### explanation:
 ***
- we define a Predicate that tests whether a given string starts with the letter "J", a Function that returns the salary of an Employee object, and a Supplier that generates a random salary between 0 and 100000 for a new employee.
+1. we define a Predicate that tests whether a given string starts with the letter "J", a Function that returns the salary of an Employee object, and a Supplier that generates a random salary between 0 and 100000 for a new employee.
  ```
   Predicate<String> startsWithJ = name -> name.startsWith("J");
         Function<Employee, Double> getSalary = employee -> employee.getSalary();
         Supplier<Double> randomSalary = () -> new Random().nextDouble() * 100000;
   ```     
-        Next, we define a Predicate that tests whether a given string starts with the letter "J", a Function that returns the salary of an Employee object, and a Supplier that generates a random salary between 0 and 100000 for a new employee.
+2. Next, we define a Predicate that tests whether a given string starts with the letter "J", a Function that returns the salary of an Employee object, and a Supplier that generates a random salary between 0 and 100000 for a new employee.
         
         
  ```  
-          double newEmployeeSalary = randomSalary.get();
+  double newEmployeeSalary = randomSalary.get();
         Employee newEmployee = new Employee("Jill", newEmployeeSalary);
         employees.add(newEmployee);
  ```
        
-        We generate a new random salary for a new employee using the randomSalary supplier and create a new Employee object with the name "Jill" and the generated salary. We then add this new employee to the list of employees.
+3. We generate a new random salary for a new employee using the randomSalary supplier and create a new Employee object with the name "Jill" and the generated salary. We then add this new employee to the list of employees.
  ```
-        double totalSalary = employees.stream()
-            .filter(employee -> startsWithJ.test(employee.getName()))
-            .mapToDouble(getSalary)
-            .sum();
+  double totalSalary = employees.stream()
+        .filter(employee -> startsWithJ.test(employee.getName()))
+        .mapToDouble(getSalary)
+        .sum();
 ```     
-            We create a stream of the employees and filter for those whose names start with "J" using the startsWithJ predicate. We then map each of these employees to their salary using the getSalary function and convert the resulting stream of Double objects to a DoubleStream using the mapToDouble() method. We then calculate the sum of the salaries using the sum() method.
+4. We create a stream of the employees and filter for those whose names start with "J" using the startsWithJ predicate. We then map each of these employees to their salary using the getSalary function and convert the resulting stream of Double objects to a DoubleStream using the mapToDouble() method. We then calculate the sum of the salaries using the sum() method.
 ```
-             double averageSalary = employees.stream()
-            .filter(employee -> startsWithJ.test(employee.getName()))
-            .mapToDouble(getSalary)
-            .average()
-            .orElse(0);
+  double averageSalary = employees.stream()
+        .filter(employee -> startsWithJ.test(employee.getName()))
+        .mapToDouble(getSalary)
+        .average()
+        .orElse(0);
 ```   
-            We create a second stream of the employees and filter for those whose names start with "J" using the startsWithJ predicate. We then map each of these employees to their salary using the getSalary function and convert the resulting stream of Double objects to a DoubleStream using the mapToDouble() method. We then calculate the average of the salaries using the average() method, which returns an OptionalDouble. If there are no employees whose names start with "J", we provide a default value of 0 using the orElse() method.
+5. We create a second stream of the employees and filter for those whose names start with "J" using the startsWithJ predicate. We then map each of these employees to their salary using the getSalary function and convert the resulting stream of Double objects to a DoubleStream using the mapToDouble() method. We then calculate the average of the salaries using the average() method, which returns an OptionalDouble. If there are no employees whose names start with "J", we provide a default value of 0 using the orElse() method.
             
             
  
