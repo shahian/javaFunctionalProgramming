@@ -62,6 +62,8 @@ String result = toString.apply(42); // "42"
         Supplier<Double> randomSalary = () -> new Random().nextDouble() * 100000;
   ```     
         Next, we define a Predicate that tests whether a given string starts with the letter "J", a Function that returns the salary of an Employee object, and a Supplier that generates a random salary between 0 and 100000 for a new employee.
+        
+        
  ```  
           double newEmployeeSalary = randomSalary.get();
         Employee newEmployee = new Employee("Jill", newEmployeeSalary);
